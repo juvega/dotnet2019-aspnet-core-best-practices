@@ -40,7 +40,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 authenticationScheme: "Test",
                 configureOptions: setup =>
                  {
-                     setup.ApiKeys.Add("PatataKey");
+                     setup.ApiKeys.Add("MUGPeru");
                  })
            .Services;
         }

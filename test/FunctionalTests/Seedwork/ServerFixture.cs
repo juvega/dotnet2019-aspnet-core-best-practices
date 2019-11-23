@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Moq;
 using Respawn;
+using System;
 using System.IO;
 
 namespace FunctionalTests.Seedwork
@@ -25,7 +27,8 @@ namespace FunctionalTests.Seedwork
 
         private void InitializeTestServer()
         {
-            var testServer = new TestServer();
+            var service = new Mock<IServiceProvider>();
+            var testServer = new TestServer(service.Object);
 
             var host = Host.CreateDefaultBuilder()
                  .UseContentRoot(Directory.GetCurrentDirectory())

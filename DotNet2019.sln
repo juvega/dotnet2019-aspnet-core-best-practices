@@ -16,12 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{049FEE46
 		build\dependencies.props = build\dependencies.props
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{5C215ACC-BDB8-464F-AB51-D334308EB3F6}"
-	ProjectSection(SolutionItems) = preProject
-		k8s\infra-deployment.yml = k8s\infra-deployment.yml
-		k8s\webapp-deployment.yml = k8s\webapp-deployment.yml
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalTests", "test\FunctionalTests\FunctionalTests.csproj", "{F3054E26-5F81-4649-86B3-99CAA95A355C}"
 EndProject
 Global
