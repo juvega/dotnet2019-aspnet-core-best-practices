@@ -96,7 +96,7 @@ namespace DotNet2019.Host.Diagnostics
                     {
                         var actionContext = GetProperty<object>(@event.Value, "ActionContext");
                         var context = GetProperty<HttpContext>(actionContext, "HttpContext");
-                        object actionResult = GetProperty<object>(@event.Value, "result");
+                        object actionResult = GetProperty<object>(@event.Value, "Result");
                         dynamic response = GetProperty<dynamic>(actionResult, "Value");
                         var requestId = context.Items["RequestId"].ToString();
                         traces[requestId].Append($"[ActionResultResponse] {JsonConvert.SerializeObject(response)}\n ");
