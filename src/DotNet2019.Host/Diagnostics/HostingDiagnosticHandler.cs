@@ -50,6 +50,7 @@ namespace DotNet2019.Host.Diagnostics
 
         public void OnNext(KeyValuePair<string, object> @event)
         {
+            
             switch (@event.Key)
             {
 
@@ -93,7 +94,7 @@ namespace DotNet2019.Host.Diagnostics
                     break;
                 case "Microsoft.AspNetCore.Mvc.AfterActionResult":
                     {
-                        var actionContext = GetProperty<object>(@event.Value, "actionContext");
+                        var actionContext = GetProperty<object>(@event.Value, "ActionContext");
                         var context = GetProperty<HttpContext>(actionContext, "HttpContext");
                         object actionResult = GetProperty<object>(@event.Value, "result");
                         dynamic response = GetProperty<dynamic>(actionResult, "Value");
@@ -104,9 +105,9 @@ namespace DotNet2019.Host.Diagnostics
 
                 case "Microsoft.AspNetCore.Mvc.BeforeAction":
                     {
-                        var context = GetProperty<HttpContext>(@event.Value, "httpContext");
+                        var context = GetProperty<HttpContext>(@event.Value, "HttpContext");
                         var requestId = context.Items["RequestId"].ToString();
-                        var actionDescriptor = GetProperty<object>(@event.Value, "actionDescriptor");
+                        var actionDescriptor = GetProperty<object>(@event.Value, "ActionDescriptor");
                         var actionName = GetProperty<string>(actionDescriptor, "DisplayName");
                         traces[requestId].Append($"[Mvc Action] Executing {actionName}\n");
                     }
